@@ -14,8 +14,10 @@ const CompMousePosition: React.FC = () => {
         });
       }, 1000);
     };
-    window.addEventListener("mousemove", mousemoveFn);
-
+    // window.addEventListener("mousemove", mousemoveFn);
+    throttleFn((a = 3, b = 4) => {
+      console.log("throttleFnrun");
+    }, 1000);
     return () => {
       window.removeEventListener("mousemove", mousemoveFn);
     };
