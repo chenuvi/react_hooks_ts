@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { throttleFn } from "@/utils/tool";
 
 const CompMousePosition: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const mousemoveFn = (e: MouseEvent) => {
-      console.log(
-        "🚀 ~ file: MousePosition.tsx:13 ~ mousemoveFn ~ e:",
-        e.clientX,
-        e.clientY
-      );
-      setPosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
+      throttleFn(() => {
+        // console.log(e.clientX, e.clientY);
+        setPosition({
+          x: e.clientX,
+          y: e.clientY,
+        });
+      }, 1000);
     };
     window.addEventListener("mousemove", mousemoveFn);
 
