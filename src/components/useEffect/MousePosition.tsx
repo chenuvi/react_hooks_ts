@@ -1,28 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { throttleFn } from "@/utils/tool";
+import React, { useState } from "react";
+import { useMousePosition } from "@/hooks/useMousePosition";
 
 const CompMousePosition: React.FC = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const mousemoveFn = (e: MouseEvent) => {
-      throttleFn(() => {
-        // console.log(e.clientX, e.clientY);
-        setPosition({
-          x: e.clientX,
-          y: e.clientY,
-        });
-      }, 1000);
-    };
-    // window.addEventListener("mousemove", mousemoveFn);
-    throttleFn((a = 3, b = 4) => {
-      console.log("throttleFnrun");
-    }, 1000);
-    return () => {
-      window.removeEventListener("mousemove", mousemoveFn);
-    };
-  }, []);
-
+  const position = useMousePosition(1000);
   return <>鼠标的位置是{JSON.stringify(position)}</>;
 };
 
