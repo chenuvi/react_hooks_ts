@@ -1,4 +1,5 @@
-import React, { useReducer } from "react";
+import React from "react";
+import { useImmerReducer } from "use-immer";
 
 type UserType = typeof defaultState;
 type ActionType =
@@ -23,17 +24,23 @@ const initAge = (age: number) => Math.round(Math.abs(age)) || 18;
 const reducer = (prevState: UserType, action: ActionType) => {
   switch (action.type) {
     case "UPDATE_NAME":
-      return {
-        ...prevState,
-        name: action.payload,
-      };
+      //   return {
+      //     ...prevState,
+      //     name: action.payload,
+      //   };
+      prevState.name = action.payload;
+      break;
     case "INCREMENT":
-      return {
-        ...prevState,
-        age: action.payload + prevState.age,
-      };
+      //   return {
+      //     ...prevState,
+      //     age: action.payload + prevState.age,
+      //   };
+      prevState.age = action.payload + prevState.age;
+      break;
     case "RESET":
-      return { ...defaultState, age: initAge(defaultState.age) };
+      //   return { ...defaultState, age: initAge(defaultState.age) };
+      prevState.age = initAge(defaultState.age);
+      break;
     default:
       return prevState;
   }
@@ -47,7 +54,7 @@ const initAction = (initState: UserType) => {
 };
 
 const Father: React.FC = () => {
-  const [state, dispatch] = useReducer(reducer, defaultState, initAction);
+  const [state, dispatch] = useImmerReducer(reducer, defaultState, initAction);
   const modifyUser = () => {
     // state.userName = "xxx";
     dispatch({
