@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  127.0.0.1:7890:
+    specifier: link:https_proxy=http:/127.0.0.1:7890
+    version: link:https_proxy=http:/127.0.0.1:7890
+  export:
+    specifier: ^0.1.337
+    version: 0.1.337
   immer:
     specifier: ^10.0.3
     version: 10.0.3
@@ -32,7 +38,7 @@ devDependencies:
     specifier: ^18.2.37
     version: 18.2.42
   '@types/react-dom':
-    specifier: ^18.2.15
+    specifier: ^18.2.17
     version: 18.2.17
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.10.0
@@ -918,6 +924,10 @@ packages:
       - supports-color
     dev: true
 
+  /abbrev@1.1.1:
+    resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
+    dev: false
+
   /acorn-jsx@5.3.2(acorn@8.11.2):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -1255,6 +1265,14 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /export@0.1.337:
+    resolution: {integrity: sha512-KWbYrqjAfCPTbtQwl3FgtnSYEanhDD/gUuEWmR2T1x94cR0daM90jnQXhOjqFLphwMWZH12LeGl5JF3SI6mRug==}
+    hasBin: true
+    dependencies:
+      nopt: 2.1.2
+      underscore: 1.4.4
+    dev: false
+
   /fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: true
@@ -1578,6 +1596,13 @@ packages:
     resolution: {integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==}
     dev: true
 
+  /nopt@2.1.2:
+    resolution: {integrity: sha512-x8vXm7BZ2jE1Txrxh/hO74HTuYZQEbo8edoRcANgdZ4+PCV+pbjd/xdummkmjjC7LU5EjPzlu8zEq/oxWylnKA==}
+    hasBin: true
+    dependencies:
+      abbrev: 1.1.1
+    dev: false
+
   /once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
     dependencies:
@@ -1843,6 +1868,10 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
+
+  /underscore@1.4.4:
+    resolution: {integrity: sha512-ZqGrAgaqqZM7LGRzNjLnw5elevWb5M8LEoDMadxIW3OWbcv72wMMgKdwOKpd5Fqxe8choLD8HN3iSj3TUh/giQ==}
+    dev: false
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
